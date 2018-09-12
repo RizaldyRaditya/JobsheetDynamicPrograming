@@ -5,6 +5,7 @@
  */
 package Latihan;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -23,6 +24,7 @@ public class HitungFibonacci {
         
        tampilJudul(identitas);
        int n = tampilInput();
+       BigInteger hasil = fibo(n);
     }
      private static int tampilInput() {
          Scanner input = new Scanner(System.in);
@@ -32,5 +34,16 @@ public class HitungFibonacci {
          
          return n;
      }
-     
+     private static BigInteger fibo(int n) {
+         
+         BigInteger[] hasil = new BigInteger[n];
+         
+         hasil[0] = BigInteger.ONE;
+         hasil[1] = BigInteger.ONE;
+         
+         for(int i = 2; i < n; i++){
+             hasil[i] = hasil[i - 1].add(hasil[i - 2]);
+         }
+         return hasil [n - 1];
+     }
 }
